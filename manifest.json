@@ -1,0 +1,40 @@
+{
+    "manifest_version": 3,
+    "name": "Rich Link",
+    "description": "Get all info from your 1 line url",
+    "version": "0.0.1",
+    "icons": {
+        "16": "icons/logo.png",
+        "48": "icons/logo.png",
+        "128": "icons/logo.png"
+    },
+    "options_page": "settings.html",
+    "action": {
+        "default_title": "Rich Link",
+        "default_popup": "popup.html",
+        "default_icon": "icons/logo.png"
+    },
+    "commands": {
+        "_execute_action": {
+            "suggested_key": {
+                "default": "Ctrl+M",
+                "mac": "MacCtrl+M"
+            },
+            "description": "Opens rich links"
+        }
+    },
+    "permissions": [
+        "tabs",
+        "storage",
+        "unlimitedStorage",
+        "scripting",
+        "activeTab",
+        "contextMenus"
+    ],
+    "host_permissions": [
+        "*://*/*"
+    ],
+    "background": {
+        "service_worker": "service-worker.js"
+    }
+}

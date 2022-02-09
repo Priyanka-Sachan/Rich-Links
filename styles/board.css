@@ -1,0 +1,20 @@
+body {
+    background-color: #ffffff;
+}
+
+form {
+    margin: 16px;
+}
+
+::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+}
+
+ ::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+ ::-webkit-scrollbar-thumb {
+    background: #F06060;
+}

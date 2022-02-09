@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="packages/bulma.min.css">
+    <link rel="stylesheet" href="styles/popup.css">
+    <title>Rich Link</title>
+</head>
+
+<body>
+    <div>
+        <form id="add-pin-form">
+            <figure class="image">
+                <img id="w_image">
+            </figure>
+            <div>
+                <label for="w_url">URL</label>
+                <input class="input" type="url" id="w_url" required>
+            </div>
+            <div>
+                <figure class="image is-16x16">
+                    <img id="w_favicon">
+                </figure>
+                <label for="w_title">Title</label>
+                <input class="input" type="text" id="w_title" aria-describedby="title">
+            </div>
+            <div>
+                <label for="w_type">Type</label>
+                <div class="select">
+                    <select id="w_type" aria-label="Type">
+                        <option value="undefined">Undefined</option>
+                        <option value="website">Website</option>
+                        <option value="article">Article</option>
+                        <option value="image">Image</option>
+                        <option value="video">Video</option>
+                        <option value="document">Document</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <label for="w_desc">Description</label>
+                <textarea class="textarea" id="w_desc" rows="3"></textarea>
+            </div>
+            <div>
+                <label for="w_note">Note</label>
+                <textarea class="textarea" id="w_note" rows="3"></textarea>
+            </div>
+            <button id="add_pin" type="submit" class="button">Submit</button>
+        </form>
+        <a href="board.html" target="_blank" class="button">Open Board</a>
+    </div>
+    <script src="scripts/parseDocument.js"></script>
+    <script src="scripts/popup.js"></script>
+
+</body>
+
+</html>
