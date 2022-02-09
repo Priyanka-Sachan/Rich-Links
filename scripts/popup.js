@@ -42,7 +42,11 @@ function populatePinForm() {
         wType.value = pinInfo.type;
     else
         wType.value = 'undefined';
-    preview.innerHTML = pinInfo.preview;
+    // if (pinInfo.preview)
+    //     preview.innerHTML = pinInfo.preview;
+    var converter = new showdown.Converter();
+    if (pinInfo.markdown)
+        preview.innerHTML = converter.makeHtml(pinInfo.markdown);
 }
 
 chrome.windows.getCurrent({ populate: true }, window => {
@@ -57,11 +61,10 @@ chrome.windows.getCurrent({ populate: true }, window => {
             const result = parseDocument(data, site_to_pin[0].url);
             if (result.message == 'success') {
                 pinInfo = result.info;
-                console.log(pinInfo.markdown);
                 populatePinForm();
             } else {
                 //...Show a toast message
-                console.log('Failed..')
+                console.log('Failed..');
             }
         }
     });

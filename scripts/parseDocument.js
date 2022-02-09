@@ -24,13 +24,17 @@ const parseDocument = (data, url) => {
         const docClone = doc.cloneNode(true);
         const article = new Readability(docClone).parse();
         let preview;
-        if (article.title)
-            preview = `<h1>${article.title}</h1>` + article.content;
-        else if (title)
-            preview = `<h1>${title}</h1>` + article.content;
-        else
-            preview = article.content;
-        const markdown = turndownService.turndown(preview);
+        if (article) {
+            if (article.title)
+                preview = `<h1>${article.title}</h1>` + article.content;
+            else if (title)
+                preview = `<h1>${title}</h1>` + article.content;
+            else
+                preview = article.content;
+        }
+        let markdown;
+        if (preview)
+            markdown = turndownService.turndown(preview);
         let domain = (new URL(url));
         domain = domain.hostname;
         const coverImage = (doc.querySelector('meta[property~="og:image"]') && doc.querySelector('meta[property~="og:image"]').content) ||
@@ -65,6 +69,7 @@ const parseDocument = (data, url) => {
                 markdown
             }
         };
+        console.log(result);
     }
     return result;
 }
