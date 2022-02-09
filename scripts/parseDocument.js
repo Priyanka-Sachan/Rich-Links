@@ -1,3 +1,4 @@
+const turndownService = new TurndownService();
 const parseDocument = (data, url) => {
     const parser = new DOMParser();
     const doc = parser.parseFromString(data, "text/html");
@@ -22,8 +23,14 @@ const parseDocument = (data, url) => {
 
         const docClone = doc.cloneNode(true);
         const article = new Readability(docClone).parse();
-        const preview = `<h1>${article.title}</h1>` + article.content;
-
+        let preview;
+        if (article.title)
+            preview = `<h1>${article.title}</h1>` + article.content;
+        else if (title)
+            preview = `<h1>${title}</h1>` + article.content;
+        else
+            preview = article.content;
+        const markdown = turndownService.turndown(preview);
         let domain = (new URL(url));
         domain = domain.hostname;
         const coverImage = (doc.querySelector('meta[property~="og:image"]') && doc.querySelector('meta[property~="og:image"]').content) ||
@@ -54,7 +61,8 @@ const parseDocument = (data, url) => {
                 title,
                 description,
                 type,
-                preview
+                preview,
+                markdown
             }
         };
     }

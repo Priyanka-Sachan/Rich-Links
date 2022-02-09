@@ -57,6 +57,7 @@ chrome.windows.getCurrent({ populate: true }, window => {
             const result = parseDocument(data, site_to_pin[0].url);
             if (result.message == 'success') {
                 pinInfo = result.info;
+                console.log(pinInfo.markdown);
                 populatePinForm();
             } else {
                 //...Show a toast message

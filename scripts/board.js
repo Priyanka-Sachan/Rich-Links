@@ -19,6 +19,7 @@ async function fetchAsync(url) {
             const result = parseDocument(data, url);
             if (result.message == 'success') {
                 pinInfo = result.info;
+                console.log(pinInfo.markdown);
                 populatePinForm();
             } else {
                 //...Show a toast message
