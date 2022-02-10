@@ -65,3 +65,6 @@ editArticle.addEventListener('click', () => {
 previewArticle.addEventListener('click', () => {
     editor.disable();
 });
+
+//For later on.....
+//editor.txt.html()
