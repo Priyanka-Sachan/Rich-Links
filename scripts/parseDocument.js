@@ -1,4 +1,3 @@
-const turndownService = new TurndownService();
 const parseDocument = (data, url) => {
     const parser = new DOMParser();
     const doc = parser.parseFromString(data, "text/html");
@@ -20,7 +19,6 @@ const parseDocument = (data, url) => {
         doc.querySelectorAll('link').forEach((l) => {
             l.href = new URL(l.getAttribute('href'), url).href;
         });
-
         const docClone = doc.cloneNode(true);
         const article = new Readability(docClone).parse();
         let preview;
@@ -32,13 +30,10 @@ const parseDocument = (data, url) => {
             else
                 preview = article.content;
         }
-        let markdown;
-        if (preview)
-            markdown = turndownService.turndown(preview);
         let domain = (new URL(url));
         domain = domain.hostname;
-        const coverImage = (doc.querySelector('meta[property~="og:image"]') && doc.querySelector('meta[property~="og:image"]').content) ||
-            (doc.querySelector('meta[property~="twitter:image"]') && doc.querySelector('meta[property~="twitter:image"]').content);
+        const coverImage = (doc.querySelector('meta[property~="og:image"]') && new URL(doc.querySelector('meta[property~="og:image"]').content, url).href) ||
+            (doc.querySelector('meta[property~="twitter:image"]') && new URL(doc.querySelector('meta[property~="twitter:image"]').content, url).href);
         let images = [];
         doc.querySelectorAll('img').forEach((i) => {
             if (i.getAttribute('src') != null)
@@ -65,8 +60,7 @@ const parseDocument = (data, url) => {
                 title,
                 description,
                 type,
-                preview,
-                markdown
+                preview
             }
         };
         console.log(result);

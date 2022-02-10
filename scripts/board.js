@@ -7,7 +7,8 @@ const wUrl = document.getElementById('w_url');
 const wDesc = document.getElementById('w_desc');
 const wNote = document.getElementById('w_note');
 const fetchUrl = document.getElementById('fetch_url');
-const preview = document.getElementById('preview');
+const editArticle = document.getElementById('edit_article');
+const previewArticle = document.getElementById('preview_article');
 
 let pinInfo;
 
@@ -46,9 +47,21 @@ function populatePinForm() {
         wType.value = pinInfo.type;
     else
         wType.value = 'undefined';
-    // if (pinInfo.preview)
-    // preview.innerHTML = pinInfo.preview;
-    var converter = new showdown.Converter();
-    if (pinInfo.markdown)
-        preview.innerHTML = converter.makeHtml(pinInfo.markdown);
+    if (pinInfo.preview)
+        editor.txt.html(pinInfo.preview);
 }
+
+const E = window.wangEditor;
+const editor = new E('#editor');
+editor.config.lang = 'en';
+editor.i18next = window.i18next;
+editor.create();
+// Disabled editor by disable API
+editArticle.addEventListener('click', () => {
+    editor.enable();
+});
+
+// Cancel disabled by enable API
+previewArticle.addEventListener('click', () => {
+    editor.disable();
+});

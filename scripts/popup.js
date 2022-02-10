@@ -6,7 +6,6 @@ const wType = document.getElementById('w_type');
 const wUrl = document.getElementById('w_url');
 const wDesc = document.getElementById('w_desc');
 const wNote = document.getElementById('w_note');
-const preview = document.getElementById('preview');
 
 let pinInfo;
 
@@ -42,11 +41,6 @@ function populatePinForm() {
         wType.value = pinInfo.type;
     else
         wType.value = 'undefined';
-    // if (pinInfo.preview)
-    //     preview.innerHTML = pinInfo.preview;
-    var converter = new showdown.Converter();
-    if (pinInfo.markdown)
-        preview.innerHTML = converter.makeHtml(pinInfo.markdown);
 }
 
 chrome.windows.getCurrent({ populate: true }, window => {
