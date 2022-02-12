@@ -1,3 +1,5 @@
+const openNavbar = document.getElementById('open_navbar');
+const closeNavbar = document.getElementById('close_navbar');
 const form = document.getElementById('add-pin-form');
 const wFavicon = document.getElementById('w_favicon');
 const wImage = document.getElementById('w_image');
@@ -53,6 +55,19 @@ function populatePinForm() {
 
 const E = window.wangEditor;
 const editor = new E('#editor');
+editor.config.height = 1000;
+
+editor.config.fontNames = [
+    'Arial',
+    'Tahoma',
+    'Verdana',
+    'Times New Roman',
+    'Courier New',
+];
+editor.config.excludeMenus = [
+    'redo',
+    'undo'
+]
 editor.config.lang = 'en';
 editor.i18next = window.i18next;
 editor.create();
@@ -68,3 +83,24 @@ previewArticle.addEventListener('click', () => {
 
 //For later on.....
 //editor.txt.html()
+
+/* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
+function openNav() {
+    document.getElementById("navbar").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+}
+
+/* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
+function closeNav() {
+    document.getElementById("navbar").style.width = "0";
+    document.getElementById("main").style.marginLeft = "0";
+}
+
+openNavbar.addEventListener(('click'), (e) => {
+    openNav();
+    openNavbar.style.display = 'none';
+});
+closeNavbar.addEventListener(('click'), (e) => {
+    closeNav();
+    openNavbar.style.display = 'inline';
+});

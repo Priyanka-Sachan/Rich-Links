@@ -11,51 +11,70 @@
 </head>
 
 <body>
-    <form id="add-pin-form">
-        <figure class="image">
-            <img id="w_image">
-        </figure>
-        <div>
-            <div>
-                <label for="w_url">URL</label>
-                <input class="input" type="url" id="w_url" required>
+    <div id="navbar">
+        <img class="image is-24x24" id="close_navbar" src="./icons/close.svg" alt="Close Navbar">
+        <a href="#">Inbox</a>
+        <a href="#">Design</a>
+        <a href="#">Web Dev</a>
+        <a href="#">Seminar</a>
+    </div>
+    <div id="main">
+        <div id="command_space">
+            <img class="image is-24x24" id="open_navbar" src="./icons/bars.svg" alt="Open Navbar">
+            <input class="input" type="text" placeholder="Search">
+        </div>
+        <div class="columns">
+            <div class="column is-5">
+                <form id="add-pin-form">
+                    <figure class="image">
+                        <img id="w_image">
+                    </figure>
+                    <div>
+                        <div>
+                            <label for="w_url">URL</label>
+                            <input class="input" type="url" id="w_url" required>
+                        </div>
+                        <span class="button" id="fetch_url">Fetch Url</span>
+                    </div>
+                    <div>
+                        <figure class="image is-16x16">
+                            <img id="w_favicon">
+                        </figure>
+                        <label for="w_title">Title</label>
+                        <input class="input" type="text" id="w_title" aria-describedby="title">
+                    </div>
+                    <div>
+                        <label for="w_type">Type</label>
+                        <div class="select">
+                            <select id="w_type" aria-label="Type">
+                                <option value="undefined">Undefined</option>
+                                <option value="website">Website</option>
+                                <option value="article">Article</option>
+                                <option value="image">Image</option>
+                                <option value="video">Video</option>
+                                <option value="document">Document</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="w_desc">Description</label>
+                        <textarea class="textarea" id="w_desc" rows="3"></textarea>
+                    </div>
+                    <div>
+                        <label for="w_note">Note</label>
+                        <textarea class="textarea" id="w_note" rows="3"></textarea>
+                    </div>
+                    <button id="add_pin" type="submit" class="button">Submit</button>
+                </form>
             </div>
-            <span class="button" id="fetch_url">Fetch Url</span>
-        </div>
-        <div>
-            <figure class="image is-16x16">
-                <img id="w_favicon">
-            </figure>
-            <label for="w_title">Title</label>
-            <input class="input" type="text" id="w_title" aria-describedby="title">
-        </div>
-        <div>
-            <label for="w_type">Type</label>
-            <div class="select">
-                <select id="w_type" aria-label="Type">
-                    <option value="undefined">Undefined</option>
-                    <option value="website">Website</option>
-                    <option value="article">Article</option>
-                    <option value="image">Image</option>
-                    <option value="video">Video</option>
-                    <option value="document">Document</option>
-                </select>
+            <div class="column">
+                <button class="button" id="edit_article">EDIT</button>
+                <button class="button" id="preview_article">PREVIEW</button>
+                <div id="editor">
+                    <p>Write your article or notes or thoughts or anything that can be converted to binary😀 </p>
+                </div>
             </div>
         </div>
-        <div>
-            <label for="w_desc">Description</label>
-            <textarea class="textarea" id="w_desc" rows="3"></textarea>
-        </div>
-        <div>
-            <label for="w_note">Note</label>
-            <textarea class="textarea" id="w_note" rows="3"></textarea>
-        </div>
-        <button id="add_pin" type="submit" class="button">Submit</button>
-    </form>
-    <button class="button" id="edit_article">EDIT</button>
-    <button class="button" id="preview_article">PREVIEW</button>
-    <div id="editor">
-        <p>Write your article or notes or thoughts or anything that can be converted to binary😀 </p>
     </div>
     <script src="packages/i18next.min.js"></script>
     <script src="packages/wangEditor.min.js"></script>
