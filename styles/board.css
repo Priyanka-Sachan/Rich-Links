@@ -2,9 +2,6 @@ body {
     background-color: #ffffff;
 }
 
-
-/* The sidebar menu */
-
 #navbar {
     height: 100%;
     width: 0;
@@ -18,20 +15,6 @@ body {
     transition: 0.5s;
 }
 
-#sidebar {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    right: 0;
-    overflow-x: hidden;
-    transition: 0.5s;
-}
-
-
-/* The sidebar links */
-
 #navbar a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
@@ -41,8 +24,9 @@ body {
     transition: 0.3s;
 }
 
-
-/* Position and style the close button (top right corner) */
+#open_navbar {
+    cursor: pointer;
+}
 
 #close_navbar {
     cursor: pointer;
@@ -51,19 +35,52 @@ body {
     right: 16px;
 }
 
+
+/* #sidebar {
+    padding: 16px;
+} */
+
+#sidebar-1 {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+#open_sidebar {
+    cursor: pointer;
+}
+
 #close_sidebar {
     display: none;
     cursor: pointer;
 }
 
+#sidebar-2 {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
 
-/* The button used to open the sidebar */
-
-#open_navbar {
+#max_sidebar {
     cursor: pointer;
 }
 
-#open_sidebar {
+#min_sidebar {
+    display: none;
     cursor: pointer;
 }
 
@@ -72,8 +89,7 @@ body {
 
 #main {
     transition: margin-left .5s;
-    /* If you want a transition effect */
-    padding: 20px;
+    padding: 16px;
 }
 
 #command_space {

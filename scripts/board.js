@@ -2,6 +2,8 @@ const openNavbar = document.getElementById('open_navbar');
 const closeNavbar = document.getElementById('close_navbar');
 const openSidebar = document.getElementById('open_sidebar');
 const closeSidebar = document.getElementById('close_sidebar');
+const minSidebar = document.getElementById('min_sidebar');
+const maxSidebar = document.getElementById('max_sidebar');
 
 const form = document.getElementById('add-pin-form');
 const wFavicon = document.getElementById('w_favicon');
@@ -58,7 +60,7 @@ function populatePinForm() {
 
 const E = window.wangEditor;
 const editor = new E('#editor');
-editor.config.height = 1000;
+editor.config.height = window.innerHeight - 100;
 
 editor.config.fontNames = [
     'Arial',
@@ -87,13 +89,11 @@ previewArticle.addEventListener('click', () => {
 //For later on.....
 //editor.txt.html()
 
-/* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
 function openNav() {
     document.getElementById("navbar").style.width = "200px";
     document.getElementById("main").style.marginLeft = "200px";
 }
 
-/* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
 function closeNav() {
     document.getElementById("navbar").style.width = "0";
     document.getElementById("main").style.marginLeft = "0";
@@ -108,15 +108,13 @@ closeNavbar.addEventListener(('click'), (e) => {
     openNavbar.style.display = 'inline';
 });
 
-/* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
 function openSide() {
-    document.getElementById("sidebar").style.width = "40%";
+    document.getElementById("sidebar-1").style.width = "40%";
     document.getElementById("main").style.marginRight = "40%";
 }
 
-/* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
 function closeSide() {
-    document.getElementById("sidebar").style.width = "0";
+    document.getElementById("sidebar-1").style.width = "0";
     document.getElementById("main").style.marginRight = "0";
 }
 
@@ -129,4 +127,40 @@ closeSidebar.addEventListener(('click'), (e) => {
     closeSide();
     openSidebar.style.display = 'inline';
     closeSidebar.style.display = 'none';
+});
+
+
+function maxSide() {
+    document.getElementById("sidebar-1").style.width = "40%";
+    document.getElementById("sidebar-1").style.marginRight = "60%";
+    document.getElementById("sidebar-1").style.paddingLeft = "16px";
+    document.getElementById("sidebar-1").style.paddingRight = "16px";
+    document.getElementById("sidebar-2").style.width = "60%";
+    document.getElementById("sidebar-2").style.paddingLeft = "16px";
+    document.getElementById("sidebar-2").style.paddingRight = "16px";
+    document.getElementById("command_space").style.display = "none";
+    document.getElementById("main").style.marginRight = "100%";
+}
+
+function minSide() {
+    document.getElementById("sidebar-1").style.width = "40%";
+    document.getElementById("sidebar-1").style.marginRight = "0";
+    document.getElementById("sidebar-1").style.paddingLeft = "0";
+    document.getElementById("sidebar-1").style.paddingRight = "0";
+    document.getElementById("sidebar-2").style.width = "0";
+    document.getElementById("sidebar-2").style.paddingLeft = "0";
+    document.getElementById("sidebar-2").style.paddingRight = "0";
+    document.getElementById("command_space").style.display = "flex";
+    document.getElementById("main").style.marginRight = "40%";
+}
+
+maxSidebar.addEventListener(('click'), (e) => {
+    maxSide();
+    maxSidebar.style.display = 'none';
+    minSidebar.style.display = 'inline';
+});
+minSidebar.addEventListener(('click'), (e) => {
+    minSide();
+    maxSidebar.style.display = 'inline';
+    minSidebar.style.display = 'none';
 });
