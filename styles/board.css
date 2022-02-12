@@ -18,6 +18,17 @@ body {
     transition: 0.5s;
 }
 
+#sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+
 
 /* The sidebar links */
 
@@ -40,10 +51,19 @@ body {
     right: 16px;
 }
 
+#close_sidebar {
+    display: none;
+    cursor: pointer;
+}
+
 
 /* The button used to open the sidebar */
 
 #open_navbar {
+    cursor: pointer;
+}
+
+#open_sidebar {
     cursor: pointer;
 }
 
@@ -54,18 +74,6 @@ body {
     transition: margin-left .5s;
     /* If you want a transition effect */
     padding: 20px;
-}
-
-
-/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-
-@media screen and (max-height: 450px) {
-    #navbar {
-        padding-top: 15px;
-    }
-    #navbar a {
-        font-size: 18px;
-    }
 }
 
 #command_space {

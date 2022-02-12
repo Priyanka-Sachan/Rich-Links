@@ -1,5 +1,8 @@
 const openNavbar = document.getElementById('open_navbar');
 const closeNavbar = document.getElementById('close_navbar');
+const openSidebar = document.getElementById('open_sidebar');
+const closeSidebar = document.getElementById('close_sidebar');
+
 const form = document.getElementById('add-pin-form');
 const wFavicon = document.getElementById('w_favicon');
 const wImage = document.getElementById('w_image');
@@ -86,8 +89,8 @@ previewArticle.addEventListener('click', () => {
 
 /* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
 function openNav() {
-    document.getElementById("navbar").style.width = "250px";
-    document.getElementById("main").style.marginLeft = "250px";
+    document.getElementById("navbar").style.width = "200px";
+    document.getElementById("main").style.marginLeft = "200px";
 }
 
 /* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
@@ -103,4 +106,27 @@ openNavbar.addEventListener(('click'), (e) => {
 closeNavbar.addEventListener(('click'), (e) => {
     closeNav();
     openNavbar.style.display = 'inline';
+});
+
+/* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
+function openSide() {
+    document.getElementById("sidebar").style.width = "40%";
+    document.getElementById("main").style.marginRight = "40%";
+}
+
+/* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
+function closeSide() {
+    document.getElementById("sidebar").style.width = "0";
+    document.getElementById("main").style.marginRight = "0";
+}
+
+openSidebar.addEventListener(('click'), (e) => {
+    openSide();
+    openSidebar.style.display = 'none';
+    closeSidebar.style.display = 'inline';
+});
+closeSidebar.addEventListener(('click'), (e) => {
+    closeSide();
+    openSidebar.style.display = 'inline';
+    closeSidebar.style.display = 'none';
 });
