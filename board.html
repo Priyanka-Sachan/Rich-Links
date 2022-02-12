@@ -28,31 +28,10 @@
     </div>
     <div id="sidebar">
         <div id="sidebar-1">
-            <img class="image is-24x24" id="min_sidebar" src="./icons/minimize.svg" alt="Minimize Sidenar">
-            <img class="image is-24x24" id="max_sidebar" src="./icons/maximize.svg" alt="Maximize Sidenar">
-            <form id="add-pin-form">
-                <figure class="image">
-                    <img id="w_image">
-                </figure>
+            <div style="display: flex; justify-content: space-between;">
+                <img class="image is-24x24" id="min_sidebar" src="./icons/minimize.svg" alt="Minimize Sidenar">
+                <img class="image is-24x24" id="max_sidebar" src="./icons/maximize.svg" alt="Maximize Sidenar">
                 <div class="field">
-                    <label class="label" for="w_url">Url</label>
-                    <div class="control" style="display: flex;align-items: center;">
-                        <input class="input" type="url" id="w_url" required>
-                        <img src="./icons/ok.svg" id="fetch_url" alt="Fetch Url">
-                    </div>
-                    <p class="help">Fetch contents from any url on web!</p>
-                </div>
-                <figure class="image is-16x16">
-                    <img id="w_favicon">
-                </figure>
-                <div class="field">
-                    <label class="label" for="w_title">Title</label>
-                    <div class="control">
-                        <input class="input" type="text" id="w_title" aria-describedby="title">
-                    </div>
-                </div>
-                <div class="field">
-                    <label class="label" for="w_type">Type</label>
                     <div class="control">
                         <div class="select">
                             <select id="w_type" aria-label="Type">
@@ -66,16 +45,33 @@
                         </div>
                     </div>
                 </div>
-                <div class="field">
-                    <label class="label" for="w_desc">Description</label>
-                    <div class="control">
-                        <textarea class="textarea" id="w_desc" rows="3"></textarea>
+            </div>
+            <form id="add-pin-form">
+                <figure class="image">
+                    <img id="w_image">
+                </figure>
+                <div class="control" style="display: flex;align-items: center;">
+                    <input class="input is-static" type="url" id="w_url" placeholder="Enter Url to be fetched..." required>
+                    <img src="./icons/ok.svg" id="fetch_url" alt="Fetch Url">
+                </div>
+                <div style="display: flex;align-items: center;">
+                    <figure class="image is-24x24">
+                        <img id="w_favicon" src="./icons/web.svg">
+                    </figure>
+                    <div class="field" style="flex: 1;">
+                        <div class="control">
+                            <input class="input is-static is-large" type="text" id="w_title" placeholder="Title..." aria-describedby="title">
+                        </div>
                     </div>
                 </div>
                 <div class="field">
-                    <label class="label" for="w_note">Note</label>
                     <div class="control">
-                        <textarea class="textarea" id="w_note" rows="3"></textarea>
+                        <textarea class="textarea" id="w_desc" rows="1" placeholder="Description"></textarea>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <textarea class="textarea" id="w_note" rows="1" placeholder="Your notes"></textarea>
                     </div>
                 </div>
                 <button id="add_pin" type="submit" class="button">Submit</button>
@@ -89,6 +85,7 @@
             </div>
         </div>
     </div>
+    <script src="packages/autosize.min.js"></script>
     <script src="packages/i18next.min.js"></script>
     <script src="packages/wangEditor.min.js"></script>
     <script src="packages/Readability.js"></script>

@@ -56,6 +56,7 @@ function populatePinForm() {
         wType.value = 'undefined';
     if (pinInfo.preview)
         editor.txt.html(pinInfo.preview);
+    autosize.update(document.querySelectorAll('textarea'));
 }
 
 const E = window.wangEditor;
@@ -164,3 +165,5 @@ minSidebar.addEventListener(('click'), (e) => {
     maxSidebar.style.display = 'inline';
     minSidebar.style.display = 'none';
 });
+
+autosize(document.querySelectorAll('textarea'));
